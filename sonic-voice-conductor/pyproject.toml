@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sonic-voice-conductor"
+version = "0.1.0"
+description = "Lernfähige Sprachsteuerung für Sonic Pi (Techno Live-Coding) über OSC"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Technoprompter" }]
+dependencies = [
+    "fastapi>=0.104.0",
+    "faster-whisper>=1.0.0",
+    "numpy>=1.24.0",
+    "ollama>=0.1.0",
+    "python-osc>=1.8.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "PyYAML>=6.0",
+    "rich>=13.0.0",
+    "sounddevice>=0.4.6",
+    "uvicorn[standard]>=0.24.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-asyncio>=0.21"]
+
+[project.scripts]
+svc = "svc.main:main"
+sonic-voice-conductor = "svc.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v"

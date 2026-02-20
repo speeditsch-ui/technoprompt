@@ -1,0 +1,25 @@
+# Sonic Voice Conductor - Beispiel-Konfiguration
+# Kopiere nach ~/.config/sonic-voice-conductor/config.yaml
+
+osc_host: "127.0.0.1"
+osc_port: 4560
+
+ollama_base_url: "http://127.0.0.1:11434"
+llm_model: "llama3.2"
+embed_model: "nomic-embed-text"
+
+whisper_model_size: "base"  # base | small | medium
+language: "de"
+
+record_seconds: 3.0
+sample_rate: 16000
+mic_device: null  # Index oder Substring z.B. "default" oder 2
+
+thresholds:
+  knn_auto: 0.85
+  knn_suggest: 0.65
+  llm_auto_conf: 0.8
+
+safety:
+  max_big_changes_per_8_bars: 1
+  bpm_max_delta_per_minute: 10.0
